@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button color="primary" (click)="closeModal()">
+            <ion-icon name="close" color="light"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>
+    	Filtre de recherche
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+		<ion-item>
+				<ion-label class="fw500" color="dark">Votre âge</ion-label>
+				<ion-select [(ngModel)]="q1">
+					<ion-select-option>-18</ion-select-option>
+					<ion-select-option>+18</ion-select-option>
+				</ion-select>
+			</ion-item>
+		
+			<ion-item>
+				<ion-label class="fw500" color="dark">Type d'activité</ion-label>
+				<ion-select [(ngModel)]="q2" multiple="true">
+					<ion-select-option>Indoor</ion-select-option>
+					<ion-select-option>Outdoor</ion-select-option>
+				</ion-select>
+			</ion-item>
+		
+			<ion-item>
+				<ion-label class="fw500" color="dark">Catégorie</ion-label>
+				<ion-select [(ngModel)]="q3" multiple="true">
+					<ion-select-option>Sport</ion-select-option>
+					<ion-select-option>Music</ion-select-option>
+					<ion-select-option>Food</ion-select-option>
+				</ion-select>
+			</ion-item>
+		
+			<ion-item>
+				<ion-label class="fw500" color="dark">Temps</ion-label>
+				<ion-select [(ngModel)]="q4"  multiple="true">
+					<ion-select-option>Matin</ion-select-option>
+					<ion-select-option>Midi</ion-select-option>
+					<ion-select-option>Soir</ion-select-option>
+				</ion-select>
+			</ion-item>
+		
+			<ion-item margin-bottom>
+				<ion-label class="no-margin-bottom">
+					<ion-text color="dark" class="fw500">Prix:</ion-text>
+				</ion-label>
+		
+					<ion-range dualKnobs="true" [(ngModel)]="minmaxprice" min="10" max="1000" step="10" class="no-padding-top">
+						<ion-label slot="start"><ion-text color="primary">$ {{minmaxprice.lower}}</ion-text></ion-label>
+						<ion-label slot="end"><ion-text color="primary">$ {{minmaxprice.upper}}</ion-text></ion-label>
+					</ion-range>
+			</ion-item>
+		
+			<ion-button expand="full" color="primary" (click)="goToAbout()">Surprise me!</ion-button>
+  
+</ion-content>
