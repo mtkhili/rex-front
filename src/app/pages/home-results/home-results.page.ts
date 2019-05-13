@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { GeneralServiceService } from './../../services/general-service.service';
+import { Observable } from 'rxjs';
 import {
   NavController,
   AlertController,
@@ -16,18 +19,30 @@ import { NotificationsComponent } from './../../components/notifications/notific
   templateUrl: './home-results.page.html',
   styleUrls: ['./home-results.page.scss']
 })
-export class HomeResultsPage {
+export class HomeResultsPage implements OnInit {
   searchKey = '';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+  ambiances = null ;
 
   constructor(
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     public popoverCtrl: PopoverController,
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public http: HttpClient,
+    public genServ : GeneralServiceService
   ) {
+    
+  }
 
+  ngOnInit() { }
+
+  ambiancesChanged() {
+    this.genServ.getAmbiances().subscribe(result => {
+      this.ambiances = result;
+    });
+    console.log(this.ambiances);
   }
 
   ionViewWillEnter() {

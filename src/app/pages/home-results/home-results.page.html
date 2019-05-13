@@ -30,10 +30,9 @@
 
 	<ion-item>
 	  <ion-label class="fw500" color="dark">Type d'activité</ion-label>
-	  <ion-select [(ngModel)]="q2" multiple="true">
-	    <ion-select-option>Indoor</ion-select-option>
-	    <ion-select-option>Outdoor</ion-select-option>
-	  </ion-select>
+	  <ion-select [(ngModel)]="q2" multiple="true" (click)="ambiancesChanged($event)">
+			<ion-select-option *ngFor="let item of (ambiances | async)" [value]="item.id">{{ item.ambiance }}</ion-select-option>
+		</ion-select>
 	</ion-item>
 
 	<ion-item>
