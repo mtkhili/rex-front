@@ -96,6 +96,7 @@ export class HomeResultsPage implements OnInit {
       .subscribe(res => {
         this.mapData = res;
         console.log(this.mapData);
+        this.genServ.setMapDataObject(this.mapData);
         loading.dismiss();
         this.navCtrl.navigateForward('/map');
       }, err => {

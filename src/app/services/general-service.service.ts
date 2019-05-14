@@ -11,7 +11,39 @@ const url = 'http://explorenb.local:81';
 
 export class GeneralServiceService {
 
+  mapUrl : any;
+  mapData : any;
+  eventData : any;
+  
   constructor(private http: HttpClient) { }
+
+  getUrl(){
+    return url;
+  }
+
+  setMapUrl(url){
+    this.mapUrl = url;
+  }
+
+  getMapUrl(){
+    return this.mapUrl;
+  }
+
+  setMapDataObject(data){
+    this.mapData = data;
+  }
+
+  getMapDataObject(){
+    return this.mapData;
+  }
+ 
+  setEventDataObject(data){
+    this.eventData = data;
+  }
+
+  getEventDataObject(){
+    return this.eventData;
+  }
  
   getData() {
     return this.http.get(url+'/select');
@@ -21,5 +53,9 @@ export class GeneralServiceService {
     let params = new HttpParams();
     //params = params.append('eveneme', 'val1');
     return this.http.get(url+'/evenements', {params: params});
+  }
+
+  getEventData(id){
+    return this.http.get(url+'/evenements/'+id);
   }
 }

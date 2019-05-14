@@ -10,17 +10,16 @@
 <ion-content>
 
   <ion-card class="bg-white" no-margin>
-    <div><img src="../../assets/img/event.jpeg" /></div>
+    <div><img src="{{url}}/{{eventData.image}}" /></div>
     <div fixed no-padding>
         <div padding>
-            <ion-card-title>Titre Evenement</ion-card-title>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum odio placeat incidunt nesciunt atque ratione quisquam, fugit
-              omnis maxime adipisci excepturi dignissimos aliquam asperiores itaque unde sequi? Minus, quia, dolore?
-            </p>
-              <span><b><u>Tel :</u></b> -1 (506) 252 4675</span><br><br>
-              <span><b><u>Email :</u></b> auBootlegger@gmail.com</span><br><br>
-              <span><b><u>Adresse :</u></b> 570 university Drive, E2A 2W6, Bathurst</span>
+            <ion-card-title>{{eventData.titre}}</ion-card-title>
+            <p>{{eventData.description}}</p>
+            <span><b><u>Prix :</u></b> {{eventData.prix}}</span><br><br>
+            <span><b><u>Tel :</u></b> {{eventData.telephone}} </span><br><br>
+            <span><b><u>Email :</u></b> {{eventData.email}}</span><br><br>
+            <span><b><u>Adresse :</u></b> {{eventData.numeroMaison}}, {{eventData.nomRue}}</span><br><br>
+            <span><b><u>Facebook :</u></b> {{eventData.lienFacebook}}</span>
         </div>
    </div>
   </ion-card>

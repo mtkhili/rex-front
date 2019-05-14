@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImagePage } from './../modal/image/image.page';
 import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
+import { GeneralServiceService } from './../../services/general-service.service';
 import {ModalController} from '@ionic/angular';
 
 @Component({
@@ -10,12 +11,17 @@ import {ModalController} from '@ionic/angular';
 })
 export class AboutPage implements OnInit {
 
+  eventData: any;
+  url: any;
+
   constructor(
     public modalCtrl: ModalController,
-
-  ) {  }
+    public genServ : GeneralServiceService
+    ) {}
 
   ngOnInit() {
+    this.eventData = this.genServ.getEventDataObject()[0];
+    this.url = this.genServ.getUrl();
   }
 
   //Modal search
