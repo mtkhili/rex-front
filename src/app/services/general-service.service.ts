@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
- 
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
+
+const url = 'http://explorenb.local:81';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class GeneralServiceService {
 
-  url = 'http://explorenb.local:81';
- 
   constructor(private http: HttpClient) { }
  
-  getAmbiances() {
-    return this.http.get(this.url+'/select');
+  getData() {
+    return this.http.get(url+'/select');
+  }
+
+  getMapData(parameters){
+    let params = new HttpParams();
+    //params = params.append('eveneme', 'val1');
+    return this.http.get(url+'/evenements', {params: params});
   }
 }

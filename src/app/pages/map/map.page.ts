@@ -105,8 +105,6 @@ export class MapPage implements OnInit {
     toast.present();
   }
 
- 
-
   //Modal search
   async searchFilter () {
     const modal = await this.modalCtrl.create({
@@ -114,6 +112,7 @@ export class MapPage implements OnInit {
     });
     return await modal.present();
   }
+
   async presentImage(image: any) {
     const modal = await this.modalCtrl.create({
       component: ImagePage,

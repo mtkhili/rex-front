@@ -28,7 +28,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     AppRoutingModule,
     HttpClientModule,
     ImagePageModule,
-    SearchFilterPageModule
+    SearchFilterPageModule,
   ],
   entryComponents: [NotificationsComponent],
   providers: [
