@@ -84,14 +84,16 @@ export class MapPage implements OnInit {
             lat: loc.latitude,
             lng: loc.longitude
           },
-          animation: GoogleMapsAnimation.BOUNCE
+          animation: GoogleMapsAnimation.BOUNCE,
         });
+        marker.set("eventId", loc.id);
         //show the infoWindow
         marker.showInfoWindow();
   
         //If clicked it, display the alert
         marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-          this.genServ.getEventData(1)
+          console.log(marker.get("eventId"));
+          this.genServ.getEventData(marker.get("eventId"))
           .subscribe(res => {
             this.eventData = res;
             console.log(this.eventData);
