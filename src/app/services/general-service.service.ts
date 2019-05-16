@@ -50,9 +50,7 @@ export class GeneralServiceService {
   }
 
   getMapData(parameters){
-    let params = new HttpParams();
-    //params = params.append('eveneme', 'val1');
-    return this.http.get(url+'/evenements', {params: params});
+    return this.http.get(url+'/evenements/'+parameters);
   }
 
   getEventData(id){

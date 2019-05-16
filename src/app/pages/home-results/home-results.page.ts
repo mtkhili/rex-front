@@ -27,11 +27,11 @@ export class HomeResultsPage implements OnInit {
   categories: any ;
   mapData: any ;
 
-  age: any;
-  typeActivite: any;
-  categorie: any;
-  temps: any;
-  prix: any;
+  age: any = 'null';
+  typeActivite: any = 'null';
+  categorie: any = 'null';
+  temps: any = 'null';
+  prix: any = 'null';
   parameters: any;
 
   constructor(
@@ -59,7 +59,6 @@ export class HomeResultsPage implements OnInit {
       .subscribe(res => {
         this.ambiances = res['ambiances'];
         this.categories = res['categories'];
-        console.log(this.categories);
         loading.dismiss();
       }, err => {
         console.log(err);
@@ -91,7 +90,6 @@ export class HomeResultsPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
-
     this.genServ.getMapData(this.parameters)
       .subscribe(res => {
         this.mapData = res;
@@ -106,7 +104,7 @@ export class HomeResultsPage implements OnInit {
   }
 
   public optionsFn(): void { //here item is an object 
-    this.parameters = [this.age, this.typeActivite, this.categorie, this.temps, this.prix].filter(Boolean).join("/");
+    this.parameters = [this.age, this.typeActivite, this.categorie, this.temps, this.prix].join("/");
     console.log(this.parameters);
   }
 

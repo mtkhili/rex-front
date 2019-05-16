@@ -71,12 +71,9 @@ export class MapPage implements OnInit {
       });
 
       this.mapData = this.genServ.getMapDataObject();
-
-      console.log(this.mapData);
  
       this.mapData.forEach(loc => {
         //add a marker
-        console.log(this.mapData);
         let marker: Marker = this.map.addMarkerSync({
           title: loc.titre,
           snippet: 'Clicker ici pour plus d\'information !',
