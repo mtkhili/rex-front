@@ -66,7 +66,7 @@ export class MapPage implements OnInit {
       // Move the map camera to the location with animation
       this.map.animateCamera({
         target: location.latLng,
-        zoom: 17,
+        zoom: 12,
         duration: 5000
       });
 

@@ -27,11 +27,11 @@ export class HomeResultsPage implements OnInit {
   categories: any ;
   mapData: any ;
 
-  age: any = 'null';
-  typeActivite: any = 'null';
-  categorie: any = 'null';
-  temps: any = 'null';
-  prix: any = 'null';
+  age: any = 1;
+  typeActivite: any = 1;
+  categorie: any = 1;
+  temps: any = 1;
+  prix: any = 1;
   parameters: any;
 
   constructor(
