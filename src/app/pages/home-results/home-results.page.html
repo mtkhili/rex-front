@@ -56,7 +56,7 @@
       <ion-text color="dark" class="fw500">Prix:</ion-text>
     </ion-label>
 
-      <ion-range dualKnobs="false" [(ngModel)]="prix" (ionChange)="optionsFn();" min="0" max="500" step="10" class="no-padding-top">
+      <ion-range dualKnobs="true" pin="true" [(ngModel)]="prix" (ionChange)="optionsFn();" min="0" max="500" step="10" class="no-padding-top">
         <ion-label slot="start"><ion-text color="primary">$ 0</ion-text></ion-label>
         <ion-label slot="end"><ion-text color="primary">$ 500</ion-text></ion-label>
       </ion-range>
