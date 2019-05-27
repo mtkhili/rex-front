@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'home-results', loadChildren: './pages/home-results/home-results.module#HomeResultsPageModule' },
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
+  { path: 'create-event', loadChildren: './pages/create-event/create-event.module#CreateEventPageModule' },
 ];
 
 @NgModule({
