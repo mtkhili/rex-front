@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
-import { NavController, MenuController, LoadingController } from '@ionic/angular';
+import { NavController, MenuController, LoadingController, ModalController } from '@ionic/angular';
 import { GeneralServiceService } from 'src/app/services/general-service.service';
 
 @Component({
@@ -25,7 +25,10 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.onRegisterForm = this.formBuilder.group({
-      'fullName': [null, Validators.compose([
+      'fname': [null, Validators.compose([
+        Validators.required
+      ])],
+      'lname': [null, Validators.compose([
         Validators.required
       ])],
       'email': [null, Validators.compose([
@@ -37,12 +40,36 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  async register(form: NgForm){
-    console.log('registrer');
+  // Dismiss Register Modal
+  dismissRegister() {
+    // this.modalController.dismiss();
+  }
 
-    /*this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password).subscribe(data => {
-      // this.genService.
-    })*/
+  async register(form: NgForm){
+    console.log(form.value.fname);
+
+    this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password).subscribe(data => {
+      this.genService.login(form.value.email, form.value.password).subscribe(
+        data => {
+
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          //this.dismissRegister();
+          this.navCtrl.navigateRoot('/home-results');
+        }
+      );
+      //this.alertService.presentToast(data['message']);
+    },
+    error => {
+      console.log(error);
+    },
+    () => {
+
+    }
+    );
   }
 
   /*

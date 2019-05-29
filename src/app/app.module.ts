@@ -18,6 +18,8 @@ import { SearchFilterPageModule } from './pages/modal/search-filter/search-filte
 // Components
 import { NotificationsComponent } from './components/notifications/notifications.component';
 
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @NgModule({
   declarations: [AppComponent, NotificationsComponent],
@@ -33,6 +35,7 @@ import { NotificationsComponent } from './components/notifications/notifications
   entryComponents: [NotificationsComponent],
   providers: [
     StatusBar,
+    NativeStorage,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
