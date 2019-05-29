@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 import { forkJoin } from 'rxjs';
 
 const url = 'http://explorenb.local:81';
+const authurl = 'http://127.0.0.1:8000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,11 @@ export class GeneralServiceService {
 
   getEventData(id){
     return this.http.get(url+'/evenements/'+id);
+  }
+
+  register(fName: String, lName: String, email: String, password: String) {
+    return this.http.post(authurl + 'auth/register',
+      {fName: fName, lName: lName, email: email, password: password}
+    )
   }
 }

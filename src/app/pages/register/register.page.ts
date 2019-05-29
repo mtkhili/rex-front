@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { NavController, MenuController, LoadingController } from '@ionic/angular';
+import { GeneralServiceService } from 'src/app/services/general-service.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterPage implements OnInit {
     public navCtrl: NavController,
     public menuCtrl: MenuController,
     public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private genService: GeneralServiceService
   ) { }
 
   ionViewWillEnter() {
@@ -35,6 +37,15 @@ export class RegisterPage implements OnInit {
     });
   }
 
+  async register(form: NgForm){
+    console.log('registrer');
+
+    /*this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password).subscribe(data => {
+      // this.genService.
+    })*/
+  }
+
+  /*
   async signUp() {
     const loader = await this.loadingCtrl.create({
       duration: 2000
@@ -45,6 +56,7 @@ export class RegisterPage implements OnInit {
       this.navCtrl.navigateRoot('/home-results');
     });
   }
+  */
 
   // // //
   goToLogin() {
