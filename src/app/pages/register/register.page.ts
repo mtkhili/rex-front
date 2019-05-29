@@ -46,7 +46,7 @@ export class RegisterPage implements OnInit {
   }
 
   async register(form: NgForm){
-    console.log(form.value.fname);
+    console.log(form.value.fname + form.value.lname + form.value.email + form.value.password);
 
     this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password).subscribe(data => {
       this.genService.login(form.value.email, form.value.password).subscribe(
