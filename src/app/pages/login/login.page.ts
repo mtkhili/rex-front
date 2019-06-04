@@ -80,7 +80,7 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  // // //
+  
   goToRegister() {
     this.navCtrl.navigateRoot('/register');
   }

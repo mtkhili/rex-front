@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateEventPage } from './create-event.page';
 
-describe('EditProfilePage', () => {
+describe('CreateEventPage', () => {
   let component: CreateEventPage;
   let fixture: ComponentFixture<CreateEventPage>;
 

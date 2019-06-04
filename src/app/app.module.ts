@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { MbscModule } from '@mobiscroll/angular';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -21,14 +23,16 @@ import { NotificationsComponent } from './components/notifications/notifications
 
 @NgModule({
   declarations: [AppComponent, NotificationsComponent],
-  imports: [
+  imports: [ 
+    FormsModule,  
+    MbscModule, 
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     ImagePageModule,
-    SearchFilterPageModule,
+    SearchFilterPageModule,    
   ],
   entryComponents: [NotificationsComponent],
   providers: [
