@@ -1,0 +1,7 @@
+{
+  "appId": "com.whatsupnb.local",
+  "appName": "WhatsUp NB",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
