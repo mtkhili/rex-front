@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { CreateEventPage } from './create-event.page';
 
+import { Ionic4DatepickerModule } from '@logisticinfotech/ionic4-datepicker';
+
 
 const routes: Routes = [
   {
@@ -22,7 +24,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    Ionic4DatepickerModule
   ],
   declarations: [CreateEventPage]
 })

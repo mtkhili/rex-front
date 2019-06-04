@@ -25,21 +25,23 @@
               <ion-textarea spellcheck="true" clearOnEdit="true" rows="6" cols="20" ></ion-textarea>
             </ion-item>
    
-
-            <ion-item>
-                <ion-label color="dark">Date debut : <span  style="color: red">*</span></ion-label>
-                <ion-datetime display-format="DD MMM YYYY"></ion-datetime>
-             </ion-item>
-
               <ion-item>
-                <ion-label color="dark">Heure debut : <span  style="color: red">*</span></ion-label>
-                <ion-datetime display-format="hh mm A"></ion-datetime>
+                <ion-label color="dark">Date debut : <span  style="color: red">*</span></ion-label>
+                      <ion-input readonly [(ngModel)]="selectedDate"></ion-input>
+                      <ion-button (click)="openDatePicker()">Open</ion-button>
             </ion-item>
 
             <ion-item>
                 <ion-label color="dark">Date Fin : <span  style="color: red">*</span></ion-label>
-                <ion-datetime display-format="DD MMM YYYY"></ion-datetime>
-             </ion-item>
+                      <ion-input readonly [(ngModel)]="selectedDateF"></ion-input>
+                      <ion-button (click)="openDatePickerF()">Open</ion-button>
+            </ion-item>
+
+            
+            <ion-item>
+                <ion-label color="dark">Heure Debut : <span  style="color: red">*</span></ion-label>
+                <ion-datetime display-format="hh mm A"></ion-datetime>
+            </ion-item>
 
               <ion-item>
                 <ion-label color="dark">Heure Fin : <span  style="color: red">*</span></ion-label>
@@ -114,7 +116,7 @@
 
           <ion-item>
               <ion-label color="dark">Pays : <span  style="color: red">*</span></ion-label>
-              <ion-select [(ngModel)]="idPays" (ionChange)="getProv(idPays);" placeholder="Selectionner un pays">
+              <ion-select [(ngModel)]="idPays" (ionChange)="afficherProv(idPays);" placeholder="Selectionner un pays">
                 <ion-select-option *ngFor="let item of pays" [value]="item.id">{{ item.pays }}</ion-select-option>
               </ion-select>
           </ion-item>
@@ -122,7 +124,7 @@
   
           <ion-item> 
               <ion-label color="dark">Province : <span  style="color: red">*</span></ion-label>
-              <ion-select  placeholder="Selectionner une province" >
+              <ion-select [(ngModel)]="selProv">
                 <ion-select-option *ngFor="let item of provinces" [value]="item.id">{{ item.provinceName }}</ion-select-option>
               </ion-select>
           </ion-item>

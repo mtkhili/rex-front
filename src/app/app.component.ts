@@ -41,7 +41,7 @@ export class AppComponent {
         url: '/create-event',
         direct: 'forward',
         icon: 'create'
-      }
+      },
     ];
 
     this.initializeApp();
@@ -68,4 +68,7 @@ export class AppComponent {
   logout() {
     this.navCtrl.navigateRoot('/');
   }
+
+
+  
 }

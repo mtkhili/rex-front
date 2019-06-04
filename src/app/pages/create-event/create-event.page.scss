@@ -4,6 +4,14 @@
   }
 }
 
+ion-item {
+  --border-width: 0;
+  --inner-border-width: 0;
+  --show-full-highlight: 0;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
 #editControls {
   text-align:center;
   padding:5px;

@@ -61,8 +61,8 @@ export class GeneralServiceService {
     return this.http.get(url + '/pays');
   }
 
-  getProvince() {
-    return this.http.get(url + '/getprovinces/' + 1);
+  getProvince(idPays) {
+    return this.http.get(url + '/getprovinces/' + idPays);
   }
 
   getMapData(parameters){
