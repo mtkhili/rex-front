@@ -3,104 +3,158 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Mofifier Profile</ion-title>
+    <ion-title>Création de l’évènement </ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
-<ion-content class="profile">
+<ion-content class="event">
   <ion-card no-margin>
-    <ion-card-content class="bg-profile">
-      <img src="assets/img/avatar.jpeg">
-      <h1 class="fw500">Mouhcine Tkhili</h1>
-      <h2 color="light" margin-bottom>Client</h2>
-      <ion-button icon-left color="secondary">
-        <ion-icon name="photos"></ion-icon> 
-        Mofifier / Ajouter Avatar
-      </ion-button>
-    </ion-card-content>
-  
     <ion-grid fixed no-padding>
       <ion-row>
         <ion-col size="12" padding>
-
           <ion-list margin-bottom>
 
             <ion-item>
-              <ion-label color="dark" position="stacked">Nom:</ion-label>
-              <ion-input inputmode="text" placeholder="Ex..: Joe Doe" value="Mouhcine Tkhili"></ion-input>
+               <ion-label color="dark" position="stacked">Titre : <span  style="color: red">*</span></ion-label>
+              <ion-input inputmode="text"></ion-input>
             </ion-item>
-    
+            
             <ion-item>
-              <ion-label color="dark" position="stacked">Email:</ion-label>
-              <ion-input inputmode="email" placeholder="Ex.: joe@doe.com" value="tkhilimouhcine@gmail.com"></ion-input>
+              <ion-label color="dark" position="stacked">Description : <span  style="color: red">*</span></ion-label>
+              <ion-textarea spellcheck="true" clearOnEdit="true" rows="6" cols="20" ></ion-textarea>
             </ion-item>
-    
-            <ion-item>
-              <ion-label color="dark" position="stacked">Adresse:</ion-label>
-              <ion-input inputmode="text" placeholder="Ex.: Abey Road 5"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-              <ion-label color="dark">Ville</ion-label>
-              <ion-select>
-                <ion-select-option value="nes">New York</ion-select-option>
-                <ion-select-option value="n64">Los Angeles</ion-select-option>
-                <ion-select-option value="ps">London</ion-select-option>
-                <ion-select-option value="genesis">Paris</ion-select-option>
-                <ion-select-option value="saturn">São Paulo</ion-select-option>
-                <ion-select-option value="snes">Tokyo</ion-select-option>
-                <ion-select-option value="snes">New Delhi</ion-select-option>
-              </ion-select>
-            </ion-item>
-    
-            <ion-item>
-              <ion-label color="dark">Pays</ion-label>
-              <ion-select>
-                <ion-select-option value="nes">NY</ion-select-option>
-                <ion-select-option value="n64">CA</ion-select-option>
-                <ion-select-option value="ps">Greater London</ion-select-option>
-                <ion-select-option value="genesis">Paris</ion-select-option>
-                <ion-select-option value="saturn">SP</ion-select-option>
-                <ion-select-option value="snes">Kantō</ion-select-option>
-                <ion-select-option value="snes">Delhi</ion-select-option>
-              </ion-select>
-            </ion-item>
-          </ion-list>
-
-          <ion-list>
-            <ion-radio-group>
-              <ion-list-header color="light">
-                <ion-label class="fw700">Type Client</ion-label>
-              </ion-list-header>
-          
+   
               <ion-item>
-                <ion-label color="primary">Client</ion-label>
-                <ion-radio slot="start" value="customer" checked></ion-radio>
-              </ion-item>
-          
-              <ion-item>
-                <ion-label color="primary">Entreprise</ion-label>
-                <ion-radio slot="start" value="agent"></ion-radio>
-              </ion-item>
-            </ion-radio-group>
+                <ion-label color="dark">Date debut : <span  style="color: red">*</span></ion-label>
+                      <ion-input readonly [(ngModel)]="selectedDate"></ion-input>
+                      <ion-button (click)="openDatePicker()">Open</ion-button>
+            </ion-item>
 
             <ion-item>
-              <ion-label class="text-1x">Checkbox test</ion-label>
-              <ion-checkbox></ion-checkbox>
+                <ion-label color="dark">Date Fin : <span  style="color: red">*</span></ion-label>
+                      <ion-input readonly [(ngModel)]="selectedDateF"></ion-input>
+                      <ion-button (click)="openDatePickerF()">Open</ion-button>
             </ion-item>
-          </ion-list>
+
+            
+            <ion-item>
+                <ion-label color="dark">Heure Debut : <span  style="color: red">*</span></ion-label>
+                <ion-datetime display-format="hh mm A"></ion-datetime>
+            </ion-item>
+
+              <ion-item>
+                <ion-label color="dark">Heure Fin : <span  style="color: red">*</span></ion-label>
+                <ion-datetime display-format="hh mm A"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label class="fw500" color="dark">Tranche âge : <span  style="color: red">*</span></ion-label>
+                <ion-select [(ngModel)]="age" (ionChange)="optionsFn();" multiple="true">
+                  <ion-select-option>-18</ion-select-option>
+                  <ion-select-option>+18</ion-select-option>
+                </ion-select>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label class="fw500" color="dark">Type d'activité : <span  style="color: red">*</span></ion-label>
+                <ion-select [(ngModel)]="typeActivite" multiple="true" (ionChange)="optionsFn();">
+                  <ion-select-option *ngFor="let item of ambiances" [value]="item.id">{{ item.ambiance }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label class="fw500" color="dark">Catégorie : <span  style="color: red">*</span></ion-label>
+                <ion-select [(ngModel)]="categorie" multiple="true" (ionChange)="optionsFn();">
+                  <ion-select-option *ngFor="let item of categories" [value]="item.id">{{ item.categorie }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label class="fw500" color="dark">Temps : <span  style="color: red">*</span></ion-label>
+                <ion-select [(ngModel)]="temps"  multiple="true" (ionChange)="optionsFn();">
+                  <ion-select-option>Matin</ion-select-option>
+                  <ion-select-option>Midi</ion-select-option>
+                  <ion-select-option>Soir</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+            <ion-item>
+                <ion-label color="dark" position="stacked">Tel : <span  style="color: red">*</span></ion-label>
+                <ion-input inputmode="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label  color="dark" position="stacked">Cellulaire : <span  style="color: red">*</span></ion-label>
+                <ion-input inputmode="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label id="profile_image" color="dark" position="stacked">Image : </ion-label>
+                <ion-input type="file" accept="image/*"></ion-input>
+            </ion-item>
+
+           <ion-item>
+              <ion-label color="dark" position="stacked">Facebook</ion-label>
+              <ion-input inputmode="text"></ion-input>
+           </ion-item>
+
+           
+          <ion-item>
+            <ion-label color="dark" position="stacked" >Numero de rue : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="numeroRue" inputmode="text"></ion-input>
+          </ion-item>
+
+           <ion-item>
+            <ion-label color="dark" position="stacked">Nom de la rue : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="nomRue" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="dark" position="stacked">Code postale : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="zipCode" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="dark">Pays : <span  style="color: red">*</span></ion-label>
+              <ion-select [(ngModel)]="idPays" (ionChange)="afficherProv(idPays);" placeholder="Selectionner un pays">
+                <ion-select-option *ngFor="let item of pays" [value]="item.id">{{ item.pays }}</ion-select-option>
+              </ion-select>
+          </ion-item>
+   
   
+          <ion-item> 
+              <ion-label color="dark">Province : <span  style="color: red">*</span></ion-label>
+              <ion-select [(ngModel)]="selProv">
+                <ion-select-option *ngFor="let item of provinces" [value]="item.id">{{ item.provinceName }}</ion-select-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label  color="dark" position="stacked">Ville : <span  style="color: red">*</span></ion-label>
+              <ion-input [(ngModel)]="ville" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="dark" position="stacked">Description adresse :</ion-label>
+              <ion-textarea spellcheck="true" clearOnEdit="true" rows="6" cols="20"></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="dark" position="stacked">Email : <span  style="color: red">*</span></ion-label>
+              <ion-input inputmode="text"></ion-input>
+           </ion-item>
+
+           <ion-item>
+              <ion-label color="dark" position="stacked">Prix :</ion-label>
+              <ion-input inputmode="text" value="0"></ion-input>
+           </ion-item>
+
+          </ion-list>
         </ion-col>
       </ion-row>
     </ion-grid>
-  
-    <ion-button size="large" expand="full" color="dark" (click)="sendData()" no-margin>Modifier</ion-button>
+    <ion-button size="large" expand="full" color="dark" (click)="createEvent()" tappable no-margin>Creer</ion-button>
   </ion-card>
-  
-  <div padding>
-    <ion-text color="dark" no-margin>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum odio placeat incidunt nesciunt atque ratione quisquam, fugit
-      omnis maxime adipisci excepturi dignissimos aliquam asperiores itaque unde sequi? Minus, quia, dolore?
-    </ion-text>
-  </div>
+ 
 </ion-content>

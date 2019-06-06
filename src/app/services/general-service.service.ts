@@ -53,15 +53,23 @@ export class GeneralServiceService {
   }
  
   getData() {
-    return this.http.get(url+'/select');
+    return this.http.get(url + '/select');
+  }
+
+  getCountry() {
+    return this.http.get(url + '/pays');
+  }
+
+  getProvince(idPays) {
+    return this.http.get(url + '/getprovinces/' + idPays);
   }
 
   getMapData(parameters){
-    return this.http.get(url+'/evenements/'+parameters);
+    return this.http.get(url + '/evenements/' + parameters);
   }
 
   getEventData(id){
-    return this.http.get(url+'/evenements/'+id);
+    return this.http.get(url + '/evenements/' + id);
   }
 
   login(email: String, password: String){

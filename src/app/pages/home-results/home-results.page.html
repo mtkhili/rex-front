@@ -22,7 +22,7 @@
 
 	<ion-item>
 	  <ion-label class="fw500" color="dark">Votre âge</ion-label>
-	  <ion-select [(ngModel)]="age" (ionChange)="optionsFn();">
+	  <ion-select [(ngModel)]="age" (ionChange)="optionsFn();" multiple="true">
 	    <ion-select-option>-18</ion-select-option>
 	    <ion-select-option>+18</ion-select-option>
 	  </ion-select>
@@ -30,21 +30,21 @@
 
 	<ion-item>
 	  <ion-label class="fw500" color="dark">Type d'activité</ion-label>
-	  <ion-select [(ngModel)]="typeActivite" multiple="false" (ionChange)="optionsFn();">
+	  <ion-select [(ngModel)]="typeActivite" multiple="true" (ionChange)="optionsFn();">
 			<ion-select-option *ngFor="let item of ambiances" [value]="item.id">{{ item.ambiance }}</ion-select-option>
 		</ion-select>
 	</ion-item>
 
 	<ion-item>
 	  <ion-label class="fw500" color="dark">Catégorie</ion-label>
-	  <ion-select [(ngModel)]="categorie" multiple="false" (ionChange)="optionsFn();">
+	  <ion-select [(ngModel)]="categorie" multiple="true" (ionChange)="optionsFn();">
 			<ion-select-option *ngFor="let item of categories" [value]="item.id">{{ item.categorie }}</ion-select-option>
 	  </ion-select>
 	</ion-item>
 
 	<ion-item>
 	  <ion-label class="fw500" color="dark">Temps</ion-label>
-	  <ion-select [(ngModel)]="temps"  multiple="false" (ionChange)="optionsFn();">
+	  <ion-select [(ngModel)]="temps"  multiple="true" (ionChange)="optionsFn();">
 	    <ion-select-option>Matin</ion-select-option>
 	    <ion-select-option>Midi</ion-select-option>
       <ion-select-option>Soir</ion-select-option>
