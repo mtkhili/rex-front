@@ -6,7 +6,6 @@ import { tap } from 'rxjs/operators';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 const url = 'http://explorenb.local:81';
-const authurl = 'http://127.0.0.1:8000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -66,7 +65,7 @@ export class GeneralServiceService {
   }
 
   login(email: String, password: String){
-    return this.http.post(authurl + '/auth/login',
+    return this.http.post(url + '/api/userLogin',
       {email: email, password: password}
     ).pipe(
       tap(token => {
@@ -84,9 +83,9 @@ export class GeneralServiceService {
     );
   }
 
-  register(fName: String, lName: String, email: String, password: String) {
-    return this.http.post(authurl + '/auth/register',
-      {nom: fName, prenom: lName, email: email, password: password}
+  register(nom: String, prenom: String, email: String, password: String, cPassword: String) {
+    return this.http.post(url + '/api/userRegister',
+      {nom: nom, prenom: prenom, email: email, password: password, c_password: cPassword}
     )
   }
 }

@@ -36,6 +36,9 @@ export class RegisterPage implements OnInit {
       ])],
       'password': [null, Validators.compose([
         Validators.required
+      ])],
+      'c_password': [null, Validators.compose([
+        Validators.required
       ])]
     });
   }
@@ -45,10 +48,30 @@ export class RegisterPage implements OnInit {
     // this.modalController.dismiss();
   }
 
+  // register(fName: String, lName: String, email: String, password: String, cPassword: String)
+
+  /*
+    async getData() {
+    const loading = await this.LoadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+    this.genServ.getData()
+      .subscribe(res => {
+        this.ambiances = res['ambiances'];
+        this.categories = res['categories'];
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
+  }
+  */
+
   async register(form: NgForm){
     console.log(form.value.fname + form.value.lname + form.value.email + form.value.password);
 
-    this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password).subscribe(data => {
+    this.genService.register(form.value.fname, form.value.lname, form.value.email, form.value.password, form.value.c_password).subscribe(data => {
       this.genService.login(form.value.email, form.value.password).subscribe(
         data => {
 

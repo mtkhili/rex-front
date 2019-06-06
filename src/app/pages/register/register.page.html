@@ -66,6 +66,19 @@
         </ion-text>
       </p>
 
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          Confirmer le mot de passe
+        </ion-label>
+        <ion-input color="secondary" type="password" formControlName="c_password"></ion-input>
+      </ion-item>
+      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('c_password').touched && onRegisterForm.get('c_password').hasError('required')">
+        <ion-text color="warning">
+          Ce champ est requis
+        </ion-text>
+      </p>
+
       <ion-button type="submit" margin icon-left size="medium" expand="full" shape="round" color="dark" [disabled]="!onRegisterForm.valid"
         tappable>
         <ion-icon name="log-in"></ion-icon>
