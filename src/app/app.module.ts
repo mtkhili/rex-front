@@ -24,6 +24,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { Ionic4DatepickerModule } from '@logisticinfotech/ionic4-datepicker';
 
+
+
 @NgModule({
   declarations: [AppComponent, NotificationsComponent],
   imports: [ 
@@ -31,6 +33,7 @@ import { Ionic4DatepickerModule } from '@logisticinfotech/ionic4-datepicker';
     FormsModule,  
     BrowserModule,
     BrowserAnimationsModule,
+    Ionic4DatepickerModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,

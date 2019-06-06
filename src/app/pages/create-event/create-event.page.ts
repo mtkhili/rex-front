@@ -5,6 +5,7 @@ import { GeneralServiceService } from './../../services/general-service.service'
 
 import { Ionic4DatepickerModalComponent } from '@logisticinfotech/ionic4-datepicker';
 
+
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.page.html',
@@ -49,6 +50,13 @@ export class CreateEventPage implements OnInit {
   prix: any = 1;
   parameters: any;
 
+  numeroRue: any;
+  nomRue: any;
+  ville: any;
+  zipCode: any;
+
+  // private nativeGeocoder: NativeGeocoder
+
   constructor(
 
     public navCtrl: NavController,
@@ -57,7 +65,7 @@ export class CreateEventPage implements OnInit {
     private formBuilder: FormBuilder,
     public LoadingController : LoadingController,
     public genServ : GeneralServiceService,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
 
     ) { }
 
@@ -105,8 +113,7 @@ export class CreateEventPage implements OnInit {
       this.genServ.getProvince(this.idPays)
         .subscribe(res => {
           this.provinces = res['provinces'];
-          
-          loading.dismiss();
+           loading.dismiss();
         }, err => {
           console.log(err);
           loading.dismiss();
@@ -208,24 +215,11 @@ export class CreateEventPage implements OnInit {
       });
     }
 
-  async sendData() {
-    const loader = await this.loadingCtrl.create({
-      duration: 2000
-    });
 
-    loader.present();
-    loader.onWillDismiss().then(async l => {
-      const toast = await this.toastCtrl.create({
-        showCloseButton: true,
-        cssClass: 'bg-profile',
-        message: 'Your Event was Created!',
-        duration: 3000,
-        position: 'bottom'
-      });
+  async createEvent() {
 
-      toast.present();
-      this.navCtrl.navigateForward('/home-results');
-    });
+    var addresse = this.numeroRue + " " + this.nomRue + " " + this.ville +" " + this.zipCode;
+ 
   }
 
 }

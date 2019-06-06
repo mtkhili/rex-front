@@ -49,7 +49,7 @@
             </ion-item>
 
             <ion-item>
-                <ion-label class="fw500" color="dark">Votre âge : <span  style="color: red">*</span></ion-label>
+                <ion-label class="fw500" color="dark">Tranche âge : <span  style="color: red">*</span></ion-label>
                 <ion-select [(ngModel)]="age" (ionChange)="optionsFn();" multiple="true">
                   <ion-select-option>-18</ion-select-option>
                   <ion-select-option>+18</ion-select-option>
@@ -99,19 +99,20 @@
               <ion-input inputmode="text"></ion-input>
            </ion-item>
 
+           
+          <ion-item>
+            <ion-label color="dark" position="stacked" >Numero de rue : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="numeroRue" inputmode="text"></ion-input>
+          </ion-item>
+
            <ion-item>
-            <ion-label color="dark" position="stacked">Adresse : <span  style="color: red">*</span></ion-label>
-            <ion-input inputmode="text"></ion-input>
+            <ion-label color="dark" position="stacked">Nom de la rue : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="nomRue" inputmode="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label color="dark" position="stacked">Numero de rue : <span  style="color: red">*</span></ion-label>
-            <ion-input inputmode="text"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="dark" position="stacked">ZIP : <span  style="color: red">*</span></ion-label>
-            <ion-input inputmode="text"></ion-input>
+            <ion-label color="dark" position="stacked">Code postale : <span  style="color: red">*</span></ion-label>
+            <ion-input [(ngModel)]="zipCode" inputmode="text"></ion-input>
           </ion-item>
 
           <ion-item>
@@ -131,7 +132,7 @@
 
           <ion-item>
               <ion-label  color="dark" position="stacked">Ville : <span  style="color: red">*</span></ion-label>
-              <ion-input inputmode="text"></ion-input>
+              <ion-input [(ngModel)]="ville" inputmode="text"></ion-input>
           </ion-item>
 
           <ion-item>
@@ -153,6 +154,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <ion-button size="large" expand="full" color="dark" (click)="sendData()" tappable no-margin>Creer</ion-button>
+    <ion-button size="large" expand="full" color="dark" (click)="createEvent()" tappable no-margin>Creer</ion-button>
   </ion-card>
+ 
 </ion-content>
