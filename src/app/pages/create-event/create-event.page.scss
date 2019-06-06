@@ -12,6 +12,18 @@ ion-item {
   --inner-padding-end: 0;
 }
 
+.error-message
+{
+  color: red;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  margin-top: 40px;
+}
+
 #editControls {
   text-align:center;
   padding:5px;
