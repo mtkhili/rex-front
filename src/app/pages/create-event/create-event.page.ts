@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ToastController, ModalController } from '@ionic/angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { GeneralServiceService } from './../../services/general-service.service';
 
 import { Ionic4DatepickerModalComponent } from '@logisticinfotech/ionic4-datepicker';
@@ -15,7 +15,11 @@ import { Ionic4DatepickerModalComponent } from '@logisticinfotech/ionic4-datepic
 
 export class CreateEventPage implements OnInit {
 
-  public onCreatEventForm: FormGroup;
+ // public onCreatEventForm: FormGroup;
+
+  public validations_form: FormGroup;
+  public validation_messages: any;
+
 
   datePickerObj: any = {};
   selectedDate;
@@ -132,6 +136,24 @@ export class CreateEventPage implements OnInit {
 
       this.getCountry();
 
+      //validation Form
+
+      this.validations_form = this.formBuilder.group({
+
+        titre: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+
+      });
+    
+      this.validation_messages = {
+        'titre': [
+          { type: 'required', message: 'Titre obligatoire.' }
+        ],
+        'description': [
+          { type: 'required', message: 'Description obligatoire.' }
+        ],
+      };
+
       const disabledDates: Date[] = [
         new Date(1545911005644),
         new Date(),
@@ -216,10 +238,8 @@ export class CreateEventPage implements OnInit {
     }
 
 
-  async createEvent() {
-
-    var addresse = this.numeroRue + " " + this.nomRue + " " + this.ville +" " + this.zipCode;
- 
-  }
+    onSubmit(values){
+      console.log(values);
+    }
 
 }
