@@ -237,9 +237,7 @@ export class CreateEventPage implements OnInit {
       });
     }
 
-
     onSubmit(values){
       console.log(values);
     }
-
 }

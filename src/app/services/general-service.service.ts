@@ -5,7 +5,7 @@ import { forkJoin } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-const url = 'http://explorenb.local:81';
+const url = 'http://192.168.2.20:81';
 
 @Injectable({
   providedIn: 'root'
