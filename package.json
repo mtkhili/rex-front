@@ -51,7 +51,7 @@
     "ionic-timepicker": "^0.6.0",
     "ionic4-date-picker": "^0.1.0",
     "ionicons": "4.5.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "node-properties-parser": "0.0.2",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.5.2",
